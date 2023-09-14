@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="section" id="products" style="padding-top: 80px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Our Latest Products</h2>
+                    <span>Check out all of our products.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for object in object_list %}
+            <div class="col-lg-4">
+                <div class="item">
+                    <div class="thumb">
+                        <div class="hover-content">
+                            <ul>
+                                <li><a href="product_detail.html"><i class="fa fa-eye"></i></a></li>
+                                <li><a href=""><i class="fa fa-star"></i></a></li>
+                                <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <img src="{{ object.image.url }}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <h4>{{ object.name }}</h4>
+                        <span>{{ object.price }}$</span>
+                        <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
